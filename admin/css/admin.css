@@ -1,0 +1,129 @@
+﻿/* أنماط لوحة التحكم */
+:root {
+    --admin-primary: #2C3E50;
+    --admin-secondary: #34495E;
+    --admin-accent: #3498DB;
+    --admin-success: #27AE60;
+    --admin-danger: #E74C3C;
+    
+    --admin-bg: #ECF0F1;
+    --admin-card-bg: #FFFFFF;
+    --admin-text: #2C3E50;
+    --admin-border: #BDC3C7;
+    
+    --admin-radius: 10px;
+    --admin-transition: all 0.3s ease;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--admin-primary), var(--admin-secondary));
+}
+
+.login-box {
+    background: var(--admin-card-bg);
+    padding: 50px 40px;
+    border-radius: var(--admin-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 50px 15px 15px;
+    border: 2px solid var(--admin-border);
+    border-radius: var(--admin-radius);
+    font-size: 16px;
+    transition: var(--admin-transition);
+}
+
+.input-group input:focus {
+    border-color: var(--admin-accent);
+    outline: none;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(to right, var(--admin-accent), #2980B9);
+    color: white;
+    border: none;
+    border-radius: var(--admin-radius);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--admin-transition);
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.admin-header {
+    background: linear-gradient(to right, var(--admin-primary), var(--admin-secondary));
+    color: white;
+    padding: 20px 30px;
+}
+
+.admin-sidebar {
+    width: 250px;
+    background: var(--admin-card-bg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    color: var(--admin-text);
+    text-decoration: none;
+    transition: var(--admin-transition);
+}
+
+.menu-item:hover {
+    background: #F8F9FA;
+}
+
+.menu-item.active {
+    background: linear-gradient(to right, rgba(52, 152, 219, 0.1), transparent);
+    border-right: 3px solid var(--admin-accent);
+    color: var(--admin-accent);
+}
+
+.content-card {
+    background: var(--admin-card-bg);
+    border-radius: var(--admin-radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: var(--admin-transition);
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .login-box {
+        padding: 30px 20px;
+    }
+    
+    .admin-sidebar {
+        position: fixed;
+        right: -250px;
+        top: 0;
+        height: 100vh;
+        z-index: 1000;
+    }
+}

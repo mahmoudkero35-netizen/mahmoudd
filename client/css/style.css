@@ -1,0 +1,202 @@
+﻿/* أنماط واجهة العميل */
+:root {
+    --primary-color: #8B4513;
+    --primary-dark: #5D2900;
+    --primary-light: #A0522D;
+    --secondary-color: #D2691E;
+    --accent-color: #FFD700;
+    
+    --bg-color: #FFF8F0;
+    --card-bg: #FFFFFF;
+    --text-color: #5D4037;
+    --text-secondary: #795548;
+    --border-color: #E0C9B8;
+    --shadow-color: rgba(139, 69, 19, 0.1);
+    
+    --border-radius: 20px;
+    --transition: all 0.3s ease;
+    --shadow: 0 10px 30px var(--shadow-color);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1A1A1A;
+    --card-bg: #2D2D2D;
+    --text-color: #E0E0E0;
+    --text-secondary: #B0B0B0;
+    --border-color: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: var(--transition);
+    overflow-x: hidden;
+}
+
+/* الهيدر */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+}
+
+.restaurant-name {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* فئات التنقل */
+.categories-nav {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.category-btn {
+    padding: 15px 30px;
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.category-btn:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+}
+
+.category-btn.active {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-color: transparent;
+}
+
+/* شبكة الأصناف */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.menu-item {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(139, 69, 19, 0.2);
+}
+
+.item-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.menu-item:hover .item-image {
+    transform: scale(1.1);
+}
+
+.item-content {
+    padding: 20px;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.item-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.item-price {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+/* الفوتر */
+.menu-footer {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    margin-top: 50px;
+    box-shadow: var(--shadow);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px;
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 768px) {
+    .menu-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    
+    .restaurant-name {
+        font-size: 2rem;
+    }
+}
