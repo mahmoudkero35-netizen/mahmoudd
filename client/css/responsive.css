@@ -1,0 +1,147 @@
+/* تصميم متجاوب إضافي */
+
+/* شاشات كبيرة جدًا */
+@media (min-width: 1400px) {
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    }
+    
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}
+
+/* أجهزة التابلت */
+@media (max-width: 1024px) {
+    .menu-header {
+        border-radius: 0;
+    }
+    
+    .categories-nav {
+        overflow-x: auto;
+        padding: 20px;
+    }
+    
+    .category-btn {
+        padding: 14px 28px;
+        font-size: 0.95rem;
+    }
+}
+
+/* هواتف أفقية */
+@media (max-width: 768px) and (orientation: landscape) {
+    .menu-header {
+        padding: 15px 20px;
+    }
+    
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .floating-actions {
+        bottom: 15px;
+        left: 15px;
+    }
+}
+
+/* هواتف عمودية صغيرة */
+@media (max-width: 375px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 15px 30px;
+    }
+    
+    .restaurant-name {
+        font-size: 1.8rem;
+    }
+    
+    .restaurant-tagline {
+        font-size: 1rem;
+    }
+    
+    .category-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+    
+    .footer-content {
+        padding: 25px 15px;
+    }
+}
+
+/* التحكم في التمرير السلس للهواتف */
+@media (max-width: 768px) {
+    html {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .categories-nav {
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .category-btn {
+        scroll-snap-align: start;
+    }
+}
+
+/* تحسينات للوضع الداكن على الهواتف */
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+    :root:not([data-theme="light"]) {
+        --bg-color: var(--bg-dark);
+        --card-bg: var(--card-dark);
+        --text-color: var(--text-dark);
+        --text-secondary: var(--text-secondary-dark);
+        --border-color: var(--border-dark);
+        --shadow-color: var(--shadow-dark);
+    }
+}
+
+/* تحسينات للأجهزة التي تدعم hover */
+@media (hover: hover) and (pointer: fine) {
+    .menu-item:hover .item-title {
+        color: var(--primary-color);
+    }
+    
+    .category-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+    }
+}
+
+/* تحسينات للأجهزة التي لا تدعم hover */
+@media (hover: none) and (pointer: coarse) {
+    .menu-item:active {
+        transform: scale(0.98);
+    }
+    
+    .category-btn:active {
+        transform: scale(0.95);
+    }
+}
+
+/* تحسينات لشاشات عالية الدقة */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-icon {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .menu-item {
+        border-width: 0.5px;
+    }
+}
+
+/* تصحيح لبعض المتصفحات */
+@supports not (backdrop-filter: blur(10px)) {
+    .theme-controls,
+    .search-btn,
+    .language-btn {
+        background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .search-overlay {
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
