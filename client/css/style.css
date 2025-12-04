@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-﻿
-=======
-/* ============================================
-   تصميم متكامل لواجهة العميل - مينو الكافيه
-   إصدار: 2.0 | تصميم حديث ومتجاوب
-   ============================================ */
-
 :root {
-    /* الألوان الأساسية (ثيم فاتح) */
+    /* الألوان الرئيسية */
     --primary-color: #8B4513;
     --primary-dark: #5D2900;
     --primary-light: #A0522D;
@@ -16,44 +8,53 @@
     --success-color: #27AE60;
     --danger-color: #E74C3C;
     
-    /* ألوان الخلفية والنصوص */
-    --bg-color: #FFF8F0;
-    --card-bg: #FFFFFF;
-    --text-color: #3E2723;
-    --text-secondary: #795548;
-    --border-color: #E0C9B8;
-    --shadow-color: rgba(139, 69, 19, 0.1);
+    /* ألوان الوضع الفاتح */
+    --bg-light: #FFF8F0;
+    --card-light: #FFFFFF;
+    --text-light: #5D4037;
+    --text-secondary-light: #795548;
+    --border-light: #E0C9B8;
+    --shadow-light: rgba(139, 69, 19, 0.1);
     
     /* ألوان الوضع الداكن */
-    --dark-bg: #1A1A1A;
-    --dark-card: #2D2D2D;
-    --dark-text: #F5F5F5;
-    --dark-border: #404040;
+    --bg-dark: #1A1A1A;
+    --card-dark: #2D2D2D;
+    --text-dark: #E0E0E0;
+    --text-secondary-dark: #B0B0B0;
+    --border-dark: #404040;
+    --shadow-dark: rgba(0, 0, 0, 0.3);
     
-    /* الأبعاد والتأثيرات */
+    /* متغيرات عامة */
+    --bg-color: var(--bg-light);
+    --card-bg: var(--card-light);
+    --text-color: var(--text-light);
+    --text-secondary: var(--text-secondary-light);
+    --border-color: var(--border-light);
+    --shadow-color: var(--shadow-light);
+    
+    /* التصميم */
     --border-radius: 16px;
-    --border-radius-lg: 24px;
-    --border-radius-sm: 8px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
-    --shadow-hover: 0 15px 35px rgba(139, 69, 19, 0.15);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.12);
+    --card-padding: 24px;
 }
 
 [data-theme="dark"] {
-    --bg-color: var(--dark-bg);
-    --card-bg: var(--dark-card);
-    --text-color: var(--dark-text);
-    --text-secondary: #BDBDBD;
-    --border-color: var(--dark-border);
-    --shadow-color: rgba(0, 0, 0, 0.3);
+    --bg-color: var(--bg-dark);
+    --card-bg: var(--card-dark);
+    --text-color: var(--text-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --border-color: var(--border-dark);
+    --shadow-color: var(--shadow-dark);
 }
 
-/* ============ RESET & BASE STYLES ============ */
+/* Reset وأنماط أساسية */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
 }
 
 html {
@@ -61,127 +62,59 @@ html {
 }
 
 body {
-    font-family: 'Tajawal', 'Segoe UI', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.6;
     transition: var(--transition);
-    min-height: 100vh;
     overflow-x: hidden;
-}
-
-/* ============ LOADING SCREEN ============ */
-.loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
-}
-
-.loading-content {
-    text-align: center;
-    color: white;
-}
-
-.coffee-spinner {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 30px;
-}
-
-.coffee-cup-loading {
-    width: 80px;
-    height: 60px;
-    background: white;
-    border-radius: 0 0 40px 40px;
-    position: relative;
-    margin: 0 auto;
-}
-
-.coffee-cup-loading:before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: -10px;
-    width: 100px;
-    height: 20px;
-    background: white;
-    border-radius: 50%;
-}
-
-.loading-text {
-    font-size: 1.2rem;
-    margin-top: 20px;
-    opacity: 0.9;
-}
-
-/* ============ MAIN CONTAINER ============ */
-.menu-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
     min-height: 100vh;
-    position: relative;
+    line-height: 1.6;
 }
 
-/* ============ HEADER ============ */
+/* تصميم الهيدر المحسن */
 .menu-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    border-radius: var(--border-radius-lg);
-    padding: 25px 30px;
-    margin-bottom: 30px;
-    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: var(--shadow-lg);
+    padding: 20px 30px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    margin-bottom: 40px;
     position: relative;
     overflow: hidden;
+    color: white;
 }
 
-.menu-header:before {
+.menu-header::before {
     content: '';
     position: absolute;
     top: 0;
+    left: 0;
     right: 0;
-    width: 300px;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transform: translate(30%, -30%);
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 Z"/></svg>');
+    background-size: cover;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
     gap: 20px;
-    z-index: 1;
+    position: relative;
+    z-index: 2;
 }
 
 .logo-icon {
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: var(--accent-color);
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    animation: bounce 2s infinite;
 }
 
 .restaurant-name {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    margin-bottom: 5px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .restaurant-tagline {
@@ -190,20 +123,20 @@ body {
     font-weight: 300;
 }
 
+/* أزرار التحكم */
 .header-controls {
     display: flex;
     gap: 15px;
-    align-items: center;
-    z-index: 1;
+    position: relative;
+    z-index: 2;
 }
 
 .theme-controls {
     display: flex;
-    gap: 10px;
     background: rgba(255, 255, 255, 0.1);
-    padding: 8px;
-    border-radius: 50px;
     backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 5px;
 }
 
 .theme-btn {
@@ -211,144 +144,93 @@ body {
     height: 45px;
     border-radius: 50%;
     border: none;
-    background: rgba(255, 255, 255, 0.2);
+    background: transparent;
     color: white;
-    font-size: 1.2rem;
     cursor: pointer;
     transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.2rem;
 }
 
 .theme-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
 }
 
 .theme-btn.active {
     background: var(--accent-color);
     color: var(--primary-dark);
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
 
 .search-btn, .language-btn {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     border: none;
     background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     color: white;
-    font-size: 1.3rem;
     cursor: pointer;
     transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px);
+    font-size: 1.2rem;
 }
 
 .search-btn:hover, .language-btn:hover {
     background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
-.language-btn {
+.lang-text {
     font-weight: 700;
-    font-size: 1rem;
 }
 
-/* ============ SEARCH OVERLAY ============ */
-.search-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    backdrop-filter: blur(5px);
-}
-
-.search-container {
-    width: 90%;
-    max-width: 600px;
-    background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
-    padding: 30px;
-    box-shadow: var(--shadow-lg);
-}
-
-.search-input {
-    width: 100%;
-    padding: 20px 25px;
-    font-size: 1.2rem;
-    border: 2px solid var(--border-color);
-    border-radius: var(--border-radius);
-    background: var(--bg-color);
-    color: var(--text-color);
-    transition: var(--transition);
-}
-
-.search-input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.2);
-}
-
-.close-search {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: none;
-    border: none;
-    color: var(--text-color);
-    font-size: 2rem;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.close-search:hover {
-    color: var(--primary-color);
-    transform: scale(1.2);
-}
-
-/* ============ CATEGORIES NAV ============ */
+/* شريط الفئات المحسن */
 .categories-nav {
     display: flex;
     gap: 15px;
-    padding: 20px 0;
-    margin-bottom: 30px;
     overflow-x: auto;
-    scrollbar-width: none;
+    padding: 25px 30px;
+    margin-bottom: 40px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
 }
 
 .categories-nav::-webkit-scrollbar {
-    display: none;
+    height: 6px;
+}
+
+.categories-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.categories-nav::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 3px;
 }
 
 .category-btn {
-    padding: 15px 30px;
+    padding: 16px 32px;
     background: var(--card-bg);
     border: 2px solid var(--border-color);
-    border-radius: var(--border-radius);
+    border-radius: 50px;
     color: var(--text-color);
     font-weight: 600;
-    font-size: 1.1rem;
     cursor: pointer;
     transition: var(--transition);
     white-space: nowrap;
-    flex-shrink: 0;
+    font-size: 1rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .category-btn:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     border-color: var(--primary-color);
     box-shadow: var(--shadow-hover);
 }
@@ -357,44 +239,42 @@ body {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     border-color: transparent;
-    box-shadow: 0 10px 20px rgba(139, 69, 19, 0.2);
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
 }
 
 .category-btn i {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
-/* ============ MENU GRID ============ */
+/* شبكة الأصناف المحسنة */
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 30px;
-    padding: 20px 0;
+    padding: 0 30px 60px;
 }
 
 .menu-item {
     background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
+    border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
     cursor: pointer;
+    position: relative;
     border: 1px solid var(--border-color);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 .menu-item:hover {
-    transform: translateY(-15px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-hover);
-    border-color: var(--primary-light);
+    border-color: var(--primary-color);
 }
 
 .item-image-container {
     position: relative;
-    height: 250px;
     overflow: hidden;
+    height: 250px;
 }
 
 .item-image {
@@ -405,46 +285,37 @@ body {
 }
 
 .menu-item:hover .item-image {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
-.item-badges {
+.item-badge {
     position: absolute;
     top: 15px;
     left: 15px;
-    display: flex;
-    gap: 10px;
-}
-
-.badge {
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
+    background: var(--success-color);
     color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 2;
 }
 
-.badge.popular {
-    background: linear-gradient(45deg, #FF4081, #F50057);
+.item-badge.popular {
+    background: var(--accent-color);
+    color: var(--primary-dark);
 }
 
-.badge.new {
-    background: linear-gradient(45deg, #00BCD4, #0097A7);
+.item-badge.new {
+    background: var(--primary-color);
 }
 
-.badge.vegetarian {
-    background: linear-gradient(45deg, #4CAF50, #2E7D32);
-}
-
-.badge.spicy {
-    background: linear-gradient(45deg, #FF9800, #F57C00);
+.item-badge.vegetarian {
+    background: var(--success-color);
 }
 
 .item-content {
-    padding: 25px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    padding: 24px;
 }
 
 .item-header {
@@ -455,7 +326,7 @@ body {
 }
 
 .item-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-color);
     line-height: 1.3;
@@ -465,95 +336,377 @@ body {
 .item-price {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
-    padding: 10px 20px;
-    border-radius: var(--border-radius);
-    font-weight: 800;
-    font-size: 1.4rem;
-    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+    margin-right: 10px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-left: 5px;
 }
 
 .item-description {
     color: var(--text-secondary);
-    font-size: 1.1rem;
-    line-height: 1.6;
     margin-bottom: 20px;
-    flex-grow: 1;
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
-.item-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
-    margin-top: auto;
-}
-
-.item-info {
+.item-meta {
     display: flex;
     gap: 20px;
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    font-size: 0.95rem;
 }
 
-.item-info span {
+.item-meta span {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.add-to-cart {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+.item-meta i {
+    color: var(--primary-color);
+}
+
+.item-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--accent-color);
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+}
+
+/* تصميم الفوتر المحسن */
+.menu-footer {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
     color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: var(--transition);
+}
+
+.menu-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="rgba(0,0,0,0.1)" d="M0,100 L100,0 L100,100 Z"/></svg>');
+    background-size: cover;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 50px 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--accent-color);
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.add-to-cart:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(139, 69, 19, 0.3);
+.footer-section p {
+    opacity: 0.9;
+    line-height: 1.8;
 }
 
-/* ============ MODAL ============ */
-.modal-overlay {
+.footer-bottom {
+    text-align: center;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.footer-bottom p {
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.version {
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* الأزرار العائمة */
+.floating-actions {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1000;
+}
+
+.fab-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.floating-actions:hover .fab-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.fab {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.3);
+}
+
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+}
+
+.fab-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: var(--card-bg);
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: var(--shadow);
+}
+
+.fab-item:hover {
+    transform: translateY(-3px);
+    background: var(--primary-color);
+    color: white;
+}
+
+/* تعديلات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .menu-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 0 20px 40px;
+    }
+    
+    .categories-nav {
+        padding: 20px;
+        gap: 10px;
+    }
+    
+    .category-btn {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+    
+    .restaurant-name {
+        font-size: 2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+    
+    .floating-actions {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    .fab {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .fab-item {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .item-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .item-price {
+        align-self: flex-start;
+    }
+    
+    .header-controls {
+        gap: 10px;
+    }
+    
+    .theme-btn, .search-btn, .language-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* تحسينات إضافية للواجهة */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-text {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* شريط البحث */
+.search-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 100px;
+    z-index: 999;
+}
+
+.search-container {
+    width: 90%;
+    max-width: 600px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.search-input {
+    width: 100%;
+    padding: 18px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+/* النموذج العائم للمحتوى */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     padding: 20px;
-    backdrop-filter: blur(10px);
 }
 
 .modal-content {
     background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
-    max-width: 800px;
-    width: 90%;
-    max-height: 90vh;
+    border-radius: var(--border-radius);
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 80vh;
     overflow-y: auto;
-    position: relative;
-    box-shadow: var(--shadow-lg);
-    animation: modalSlideIn 0.4s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
 }
 
-@keyframes modalSlideIn {
+@keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateY(-50px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -563,275 +716,33 @@ body {
 
 .close-modal {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    background: rgba(0, 0, 0, 0.2);
+    top: 15px;
+    left: 15px;
+    background: transparent;
     border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    color: var(--text-color);
     cursor: pointer;
-    z-index: 2;
     transition: var(--transition);
 }
 
 .close-modal:hover {
-    background: rgba(0, 0, 0, 0.4);
+    color: var(--primary-color);
     transform: rotate(90deg);
 }
 
-/* ============ FLOATING ACTIONS ============ */
-.floating-actions {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    z-index: 100;
-}
-
-.main-fab {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3);
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.main-fab:hover {
-    transform: scale(1.1) rotate(90deg);
-    box-shadow: 0 15px 40px rgba(139, 69, 19, 0.4);
-}
-
-.fab-menu {
-    position: absolute;
-    bottom: 70px;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: var(--transition);
-    pointer-events: none;
-}
-
-.fab-menu.show {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: all;
-}
-
-.fab-item {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--card-bg);
-    border: 2px solid var(--border-color);
-    color: var(--text-color);
-    font-size: 1.2rem;
+/* تحسينات للأزرار */
+button {
     cursor: pointer;
     transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow);
 }
 
-.fab-item:hover {
-    background: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
-    transform: translateY(-5px);
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
-/* ============ FOOTER ============ */
-.menu-footer {
-    background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
-    margin-top: 80px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-    overflow: hidden;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    padding: 50px;
-}
-
-.footer-section {
-    text-align: center;
-}
-
-.footer-section h3 {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.footer-section p {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-.footer-bottom {
-    background: rgba(139, 69, 19, 0.05);
-    padding: 25px;
-    text-align: center;
-    border-top: 1px solid var(--border-color);
-}
-
-.footer-bottom p {
-    color: var(--text-secondary);
-    margin-bottom: 10px;
-    font-size: 1rem;
-}
-
-.version {
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
-
-/* ============ CONTACT MODAL ============ */
-.contact-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.contact-content {
-    background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
-    padding: 40px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: var(--shadow-lg);
-    position: relative;
-}
-
-/* ============ RESPONSIVE DESIGN ============ */
-@media (max-width: 1200px) {
-    .menu-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-}
-
-@media (max-width: 768px) {
-    .menu-header {
-        flex-direction: column;
-        gap: 25px;
-        text-align: center;
-        padding: 25px 20px;
-    }
-    
-    .logo-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .restaurant-name {
-        font-size: 2.2rem;
-    }
-    
-    .menu-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 40px 25px;
-    }
-    
-    .header-controls {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .menu-container {
-        padding: 15px;
-    }
-    
-    .item-header {
-        flex-direction: column;
-        gap: 15px;
-        align-items: flex-start;
-    }
-    
-    .item-price {
-        align-self: flex-start;
-    }
-    
-    .footer-content {
-        padding: 30px 20px;
-    }
-    
-    .floating-actions {
-        bottom: 20px;
-        left: 20px;
-    }
-}
-
-/* ============ UTILITY CLASSES ============ */
-.empty-state {
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--text-secondary);
-    font-size: 1.2rem;
-    grid-column: 1 / -1;
-}
-
-.loading-state {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
-    grid-column: 1 / -1;
-}
-
-.ripple-effect {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.6);
-    transform: scale(0);
-    animation: ripple 0.6s linear;
-    pointer-events: none;
-}
-
-@keyframes ripple {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
-/* ============ CUSTOM SCROLLBAR ============ */
+/* تخصيص شريط التمرير */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -841,11 +752,174 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-light);
+    background: var(--primary-color);
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-color);
+    background: var(--primary-dark);
 }
->>>>>>> 1efff2c4cf75746d12c3f537105db111fe8b47b9
+
+/* تأثيرات الانتقال للعناصر */
+.fade-in {
+    animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* مؤشرات التحميل */
+.nav-loader, .items-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 40px;
+}
+
+.loader-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    animation: loaderBounce 1.4s infinite;
+}
+
+.loader-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes loaderBounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.item-skeleton {
+    background: linear-gradient(90deg, var(--border-color) 25%, var(--bg-color) 50%, var(--border-color) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+    border-radius: var(--border-radius);
+    height: 300px;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* رتبة النجوم */
+.rating-stars {
+    display: inline-flex;
+    direction: ltr;
+}
+
+.rating-stars input {
+    display: none;
+}
+
+.rating-stars label {
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--border-color);
+    transition: var(--transition);
+}
+
+.rating-stars label:hover,
+.rating-stars label:hover ~ label,
+.rating-stars input:checked ~ label {
+    color: var(--accent-color);
+}
+
+/* رسائل التنبيه */
+.alert {
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.alert-success {
+    background: rgba(39, 174, 96, 0.1);
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+}
+
+.alert-error {
+    background: rgba(231, 76, 60, 0.1);
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+}
+
+.alert-info {
+    background: rgba(52, 152, 219, 0.1);
+    border: 1px solid #3498db;
+    color: #3498db;
+}
+
+/* أدوات التصفية */
+.filter-bar {
+    display: flex;
+    gap: 15px;
+    padding: 20px 30px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    margin: 0 30px 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
